@@ -159,13 +159,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (score >= 9.5) return "ممتاز";
         if (score >= 9.0) return "جيد جدًا";
         if (score >= 8.5) return "جيد";
-        if (score >= 8.0) return "مقبول";
-        if (score >= 7.5) return "متوسط";
-        if (score >= 7.0) return "ضعيف";
-        if (score >= 6.5) return "ضعيف جدًا";
-        if (score >= 6.0) return "غير كافٍ";
-        if (score >= 5.0) return "غير كافٍ جدًا";
-        if (score > 0) return "ضعيف جدًا";
+        if (score >= 8.0) return "جيد";
+        if (score >= 7.5) return "حسن جدا";
+        if (score >= 7.0) return "حسن جدا";
+        if (score >= 6.5) return "حسن";
+        if (score >= 6.0) return "حسن";
+        if (score >= 5.0) return "متوسط";
+        if (score > 0) return "عمل غير كاف";
         return "غائب";
     }
 });
