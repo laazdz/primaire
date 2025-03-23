@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    direction: rtl;
+    text-align: right;
+    min-height: 100vh;
+}
+
+.container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+h1 i {
+    color: #e74c3c;
+}
+
+.school-name {
+    font-size: 24px;
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+.info-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.info-section label {
+    font-size: 20px;
+    color: #34495e;
+}
+
+.info-section input {
+    padding: 8px;
+    font-size: 18px;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.upload-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.upload-section label {
+    font-size: 20px;
+    color: #34495e;
+    margin-left: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.upload-section label i {
+    color: #27ae60;
+}
+
+.upload-section input {
+    padding: 8px;
+    font-size: 18px;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* تنسيق أزرار التبويبات */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #ecf0f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+    background-color: #dfe6e9;
+}
+
+.tab-button.active {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* تنسيق أزرار التصدير */
+.export-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.export-buttons button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s;
+}
+
+.export-buttons button:hover {
+    background-color: #27ae60;
+}
+
+.export-buttons button i {
+    font-size: 16px;
+}
+
+/* تنسيق محتوى التبويبات */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.table-wrapper {
+    margin-top: 20px;
+    border-radius: 10px;
+    position: relative;
+    overflow-x: auto; /* السماح بالتمرير الأفقي إذا لزم الأمر */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+th, td {
+    border: 1px solid #ecf0f1;
+    padding: 6px;
+    text-align: center;
+    font-size: 16px;
+}
+
+th {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+/* تنسيق الأعمدة لجميع الجداول */
+th:nth-child(2), td:nth-child(2) {
+    width: 250px; /* عرض عمود "اسم التلميذ" */
+    white-space: nowrap; /* التأكد من أن الاسم واللقب في سطر واحد */
+}
+
+th:first-child, td:first-child {
+    width: 50px; /* عرض عمود الرقم التسلسلي */
+}
+
+/* تنسيق أعمدة "باقي المواد" */
+#other-subjects-table th:nth-child(3), #other-subjects-table td:nth-child(3),
+#other-subjects-table th:nth-child(4), #other-subjects-table td:nth-child(4) {
+    width: 60px; /* المجموع والمتوسط */
+}
+
+#other-subjects-table th:nth-child(n+5), #other-subjects-table td:nth-child(n+5) {
+    width: 70px; /* أعمدة المواد والملاحظات */
+}
+
+/* تنسيق أعمدة "اللغة العربية" */
+#arabic-table th:nth-child(n+3), #arabic-table td:nth-child(n+3) {
+    width: 70px; /* أعمدة المواد والملاحظات */
+}
+
+/* تنسيق أعمدة "الرياضيات" */
+#math-table th:nth-child(n+3), #math-table td:nth-child(n+3) {
+    width: 70px; /* أعمدة المواد والملاحظات */
+}
+
+.total {
+    background-color: #ffeaa7; /* لون المجموع: أصفر فاتح */
+    font-weight: bold;
+    color: #d35400;
+}
+
+.average {
+    background-color: #55efc4; /* لون المتوسط: أخضر فاتح */
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+input[type="number"] {
+    width: 50px;
+    padding: 4px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #fff;
+    font-size: 12px;
+    font-weight: bold; /* جعل العلامات بخط عريض */
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+input[type="text"].remarks {
+    width: 60px;
+    padding: 4px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* تنسيق الملاحظات حسب الصنف */
+input[type="text"].remarks[value="ممتاز"] {
+    background-color: #2ecc71;
+    color: #fff;
+    border: 2px solid #27ae60;
+}
+
+input[type="text"].remarks[value="جيد جدًا"] {
+    background-color: #3498db;
+    color: #fff;
+    border: 2px solid #2980b9;
+}
+
+input[type="text"].remarks[value="جيد"] {
+    background-color: #f1c40f;
+    color: #fff;
+    border: 2px solid #d4ac0d;
+}
+
+input[type="text"].remarks[value="مقبول"] {
+    background-color: #e67e22;
+    color: #fff;
+    border: 2px solid #d35400;
+}
+
+input[type="text"].remarks[value="متوسط"] {
+    background-color: #95a5a6;
+    color: #fff;
+    border: 2px solid #7f8c8d;
+}
+
+input[type="text"].remarks[value="ضعيف"] {
+    background-color: #e74c3c;
+    color: #fff;
+    border: 2px solid #c0392b;
+}
+
+input[type="text"].remarks[value="ضعيف جدًا"] {
+    background-color: #c0392b;
+    color: #fff;
+    border: 2px solid #a93226;
+}
+
+input[type="text"].remarks[value="غير كافٍ"] {
+    background-color: #7f8c8d;
+    color: #fff;
+    border: 2px solid #6c757d;
+}
+
+input[type="text"].remarks[value="غير كافٍ جدًا"] {
+    background-color: #5d6d7e;
+    color: #fff;
+    border: 2px solid #4a5664;
+}
+
+input[type="text"].remarks[value="غائب"] {
+    background-color: #34495e;
+    color: #fff;
+    border: 2px solid #2c3e50;
+}
+
+/* تظليل الأسطر بالتوالي بلون فاتح جميل */
+tr:nth-child(even) {
+    background-color: #e6f0fa; /* أزرق فاتح جميل */
+}
+
+tr:hover {
+    background-color: #dfe6e9;
+}

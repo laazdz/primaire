@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام صب نقاط التلاميذ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-graduation-cap"></i> نظام صب نقاط التلاميذ</h1>
+            <h2 class="school-name">ابتدائية لغرور شعبان</h2>
+            <div class="info-section">
+                <label for="school-year">الموسم الدراسي:</label>
+                <input type="text" id="school-year" placeholder="أدخل الموسم الدراسي">
+                <label for="group">الفوج:</label>
+                <input type="text" id="group" placeholder="أدخل الفوج">
+                <label for="term">الثلاثي:</label>
+                <input type="text" id="term" placeholder="أدخل الثلاثي">
+                <label for="teacher">الأستاذة:</label>
+                <input type="text" id="teacher" placeholder="أدخل اسم الأستاذة">
+            </div>
+        </header>
+
+        <!-- أزرار التبويبات -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('other-subjects')">باقي المواد</button>
+            <button class="tab-button" onclick="showTab('arabic')">اللغة العربية</button>
+            <button class="tab-button" onclick="showTab('math')">الرياضيات</button>
+        </div>
+
+        <!-- الجدول الأول: باقي المواد -->
+        <div id="other-subjects" class="tab-content active">
+            <div class="table-wrapper">
+                <table id="other-subjects-table">
+                    <thead>
+                        <tr>
+                            <th>الرقم التسلسلي</th>
+                            <th>اسم التلميذ</th>
+                            <th>المجموع</th>
+                            <th>المتوسط</th>
+                            <th>التربية الإسلامية</th>
+                            <th>ملاحظات</th>
+                            <th>التربية العلمية</th>
+                            <th>ملاحظات</th>
+                            <th>التاريخ والجغرافيا</th>
+                            <th>ملاحظات</th>
+                            <th>التربية المدنية</th>
+                            <th>ملاحظات</th>
+                            <th>التربية الموسيقية</th>
+                            <th>ملاحظات</th>
+                            <th>التربية التشكيلية</th>
+                            <th>ملاحظات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="other-subjects-table-body">
+                        <!-- سيتم ملء هذا الجزء ديناميكيًا -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- الجدول الثاني: اللغة العربية -->
+        <div id="arabic" class="tab-content">
+            <div class="table-wrapper">
+                <table id="arabic-table">
+                    <thead>
+                        <tr>
+                            <th>الرقم التسلسلي</th>
+                            <th>اسم التلميذ</th>
+                            <th>التعبير والتواصل</th>
+                            <th>ملاحظات</th>
+                            <th>القراءة والمحفوظات</th>
+                            <th>ملاحظات</th>
+                            <th>الإنتاج الكتابي</th>
+                            <th>ملاحظات</th>
+                            <th>الاختبار</th>
+                            <th>ملاحظات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="arabic-table-body">
+                        <!-- سيتم ملء هذا الجزء ديناميكيًا -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- الجدول الثالث: الرياضيات -->
+        <div id="math" class="tab-content">
+            <div class="table-wrapper">
+                <table id="math-table">
+                    <thead>
+                        <tr>
+                            <th>الرقم التسلسلي</th>
+                            <th>اسم التلميذ</th>
+                            <th>الأعداد والحساب</th>
+                            <th>ملاحظات</th>
+                            <th>المقادير والقياس</th>
+                            <th>ملاحظات</th>
+                            <th>تنظيم المعطيات</th>
+                            <th>ملاحظات</th>
+                            <th>الفضاء والهندسة</th>
+                            <th>ملاحظات</th>
+                            <th>الاختبار</th>
+                            <th>ملاحظات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="math-table-body">
+                        <!-- سيتم ملء هذا الجزء ديناميكيًا -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- أزرار التصدير -->
+        <div class="export-buttons">
+            <button onclick="exportToExcel()"><i class="fas fa-file-excel"></i> تصدير إلى Excel</button>
+        </div>
+
+        <div class="upload-section">
+            <label for="excel-upload"><i class="fas fa-file-excel"></i> استيراد قائمة التلاميذ (Excel):</label>
+            <input type="file" id="excel-upload" accept=".xlsx, .xls">
+        </div>
+    </div>
+
+    <!-- إضافة مكتبة xlsx فقط -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
